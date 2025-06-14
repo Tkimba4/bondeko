@@ -1,0 +1,122 @@
+@use "../../assets/styles/variables" as *;
+
+.hero {
+  background-color: gray;
+  :global(.container) {
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // justify-content: ;
+  }
+}
+
+.aboutContent,
+.servicesContent,
+.whyUsContent,
+.statistiquesContent,
+.teamContent,
+.testimonialsContent,
+.contactContent {
+  display: grid;
+  gap: 1rem;
+}
+
+.services {
+  text-align: center;
+  //   background-color: whitesmoke;
+}
+.service {
+  background-color: $smoke-color;
+  //   color: white;
+  padding: 40px;
+}
+
+.about,
+.whyUs,
+.testimonials {
+  background-color: $smoke-color;
+
+  :global(.title) {
+    text-align: initial;
+  }
+}
+
+.statistiques {
+  //   background-color: $smoke-color;
+}
+.statistique {
+  padding: 40px;
+  color: $primary-color;
+  font-weight: bold;
+  font-size: 2rem;
+  //   background-color: ;
+}
+
+.team {
+  text-align: center;
+}
+.teamContent {
+}
+.member {
+  // display: grid;
+  // gap: 1rem;
+  //   img {
+  //     width: 200px;
+  //     height: auto;
+  //     background-color: gray;
+  //     border-radius: 50%/50%;
+  //   }
+  .memberImg {
+    width: 80%;
+    height: 200px;
+    margin: 0 auto;
+    background-color: gray;
+    margin-bottom: 10px;
+  }
+}
+
+.testimonialsList {
+  display: grid;
+  gap: 1rem;
+
+  .testimonial {
+    padding: 20px;
+    background-color: white;
+    border-radius: $small-raduis;
+  }
+}
+.reservation {
+  text-align: center;
+}
+
+.contactText {
+  display: grid;
+  gap: 1rem;
+}
+.contactInfo {
+  text-align: center;
+  background-color: $smoke-color;
+  padding: 40px;
+  border-radius: $small-raduis;
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media #{$desktop} {
+  .aboutContent,
+  .whyUsContent,
+  .testimonialsContent,
+  .contactContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .servicesContent,
+  .teamContent {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .statistiquesContent {
+    display: flex;
+    justify-content: center;
+  }
+}
