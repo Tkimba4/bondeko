@@ -7,7 +7,7 @@ import {
 const services = [
   {
     id: 1,
-    name: "Gynechologie",
+    name: "Gynecologie",
     desc: "Des soins gynécologiques complets pour la santé des femmes.",
     icon: "",
   },
@@ -25,6 +25,30 @@ const services = [
     icon: "",
   },
 ];
+
+const statistiques = [
+  {
+    id: 1,
+    label: "+50",
+    desc: "Années d'expérience",
+  },
+  {
+    id: 2,
+    label: "+50",
+    desc: "Médecins spécialisés",
+  },
+  {
+    id: 3,
+    label: "+1M",
+    desc: "Patients satisfaits",
+  },
+  {
+    id: 4,
+    label: "24h/7",
+    desc: "Service d'urgence",
+  },
+];
+
 const team = [
   {
     name: "Divin Mapelenkwe",
@@ -42,14 +66,32 @@ const team = [
     img: "",
   },
 ];
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Voldi Mbu",
+    title: "",
+    img: "",
+    message: `La Clinique Bondeko a changé ma vie. Les médecins sont compétents et le personnel est incroyablement attentionné.`,
+  },
+  {
+    id: 2,
+    name: "Jonathan Tshonga",
+    title: "",
+    img: "",
+    message:
+      "J’ai toujours eu une excellente expérience ici. La qualité des soins et l’empathie du personnel surpassent mes attentes.",
+  },
+];
 const contact = [
-  { icon: <Phone />, label: "Tél", value: "+243 840 000 000" },
+  { icon: <Phone />, label: "Tél.", value: "+243 840 000 000" },
   { icon: <EnvelopeSimpleIcon />, label: "Email", value: "Bondeko@test.ucc" },
   {
     icon: <MapPinLineIcon />,
-    label: "Adress",
+    label: "Adresse",
     value: "3 Av 7e rue/Limete/kinshasa",
   },
 ];
 
-export { team, contact };
+export { team, contact, services, statistiques, testimonials };

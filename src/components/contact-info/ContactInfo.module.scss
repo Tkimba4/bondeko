@@ -1,0 +1,21 @@
+@use "../../assets/styles/variables" as *;
+
+.contactInfo {
+  text-align: center;
+  background-color: $smoke-color;
+  padding: 40px;
+  border-radius: $small-raduis;
+  svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+.label {
+  font-size: large;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.value {
+//   font-weight: bold;
+}

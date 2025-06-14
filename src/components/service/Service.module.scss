@@ -1,0 +1,13 @@
+@use "../../assets/styles/variables" as *;
+
+.service {
+  background-color: $smoke-color;
+  padding: 40px;
+  display: grid;
+  gap: 1rem;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 2rem;
+}

@@ -94,16 +94,7 @@
   display: grid;
   gap: 1rem;
 }
-.contactInfo {
-  text-align: center;
-  background-color: $smoke-color;
-  padding: 40px;
-  border-radius: $small-raduis;
-  svg {
-    width: 40px;
-    height: 40px;
-  }
-}
+
 @media #{$desktop} {
   .aboutContent,
   .whyUsContent,

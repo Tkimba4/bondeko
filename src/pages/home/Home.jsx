@@ -1,6 +1,16 @@
 import React from "react";
 import styles from "./Home.module.scss";
-import { contact, team } from "../../db/data";
+import {
+  contact,
+  services,
+  statistiques,
+  team,
+  testimonials,
+} from "../../db/data";
+import Service from "../../components/service";
+import Statistique from "../../components/statistique";
+import Testimonial from "../../components/testimonial";
+import ContactInfo from "../../components/contact-info";
 const Home = () => {
   return (
     <div>
@@ -30,10 +40,12 @@ const Home = () => {
             pointe
           </p>
           <div className={styles.servicesContent}>
-            {["1", "2", "3"].map((service) => (
-              <div key={service} className={styles.service}>
-                {service}
-              </div>
+            {services.map((service) => (
+              <Service
+                key={service}
+                service={service}
+                // className={styles.service}
+              />
             ))}
           </div>
         </div>
@@ -61,10 +73,8 @@ const Home = () => {
       <section className={styles.statistiques}>
         <div className="container">
           <div className={styles.statistiquesContent}>
-            {["15+", "50+", "1M", "24H/7"].map((info) => (
-              <div key={info} className={styles.statistique}>
-                {info}
-              </div>
+            {statistiques.map((statistique) => (
+              <Statistique key={statistique.id} data={statistique} />
             ))}
           </div>
         </div>
@@ -122,18 +132,9 @@ const Home = () => {
               <h2 className="title">Ce que nos patients disent</h2>
             </div>
             <div className={styles.testimonialsList}>
-              <div className={styles.testimonial}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam maiores neque, ipsum corporis blanditiis eligendi
-                doloremque soluta, voluptatum ab eum odit animi quos a
-                necessitatibus eveniet corrupti exercitationem cupiditate omnis?
-              </div>
-              <div className={styles.testimonial}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam maiores neque, ipsum corporis blanditiis eligendi
-                doloremque soluta, voluptatum ab eum odit animi quos a
-                necessitatibus eveniet corrupti exercitationem cupiditate omnis?
-              </div>
+              {testimonials.map((testimonail) => (
+                <Testimonial key={testimonail.id} data={testimonail} />
+              ))}
             </div>
           </div>
         </div>
@@ -163,12 +164,8 @@ const Home = () => {
               <img src="" alt="" />
             </div>
             <div className={styles.contactText}>
-              {contact.map((c) => (
-                <div key={c.label} className={styles.contactInfo}>
-                  {c.icon}
-                  <h6>{c.label}</h6>
-                  <span>{c.value}</span>
-                </div>
+              {contact.map((c, index) => (
+                <ContactInfo key={index} data={c} />
               ))}
             </div>
           </div>
