@@ -11,48 +11,63 @@ import Service from "../../components/service";
 import Statistique from "../../components/statistique";
 import Testimonial from "../../components/testimonial";
 import ContactInfo from "../../components/contact-info";
+import { CalendarDotsIcon } from "@phosphor-icons/react/dist/ssr";
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
       <section className={styles.hero}>
         <div className={`${styles.heroContent} container`}>
           <div className={styles.heroText}>
-            <h1 className="BigTitle">Votre santé, notre priorité</h1>
-            <p className="">
-              Des soins de qualité avec une équipe médicale expérimentée. Prenez
-              rendez-vous facilement en ligne et bénéficiez d'un suivi
+            <h1 className="BigTitle">
+              Votre santé, <br /> notre priorité
+            </h1>
+            <p className={styles.heroSubtitle}>
+              Des soins de qualité avec une équipe médicale expérimentée. <br />
+              Prenez rendez-vous facilement en ligne.
+              {/* et bénéficiez d'un suivi */}
               personnalisé.
             </p>
-            <div className={styles.ctas}>
-              <button className={styles.cta}>
+            <div className={styles.heroCTA}>
+              <Link to={"/reservation"} className={styles.heroCTA1}>
+                <CalendarDotsIcon width={20} height={20} />
                 <span>Prendre rendez-vous</span>
-              </button>
-              <a href="#">Nos services</a>
+              </Link>
+              <a href="#" className={styles.heroCTA2}>
+                Nos services
+              </a>
             </div>
           </div>
         </div>
       </section>
       <section className={styles.services}>
         <div className={`container`}>
-          <h2 className="title">Nos sevices</h2>
-          <p className="subtitle">
-            Une gamme complète de services médicaux avec des équipements de
-            pointe
-          </p>
           <div className={styles.servicesContent}>
-            {services.map((service) => (
-              <Service
-                key={service}
-                service={service}
-                // className={styles.service}
-              />
-            ))}
+            <div className={styles.servicesText}>
+              <h2 className="title">Nos sevices</h2>
+              <p className="subtitle">
+                Une gamme complète de services médicaux avec des équipements de
+                pointe
+              </p>
+            </div>
+            <div className={styles.servicesList}>
+              {services.map((service) => (
+                <Service
+                  key={service}
+                  service={service}
+                  // className={styles.service}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
       <section className={styles.about}>
         <div className="container">
           <div className={styles.aboutContent}>
+            <div className={styles.aboutIllustration}>
+              <img src="" alt="" />
+            </div>
             <div className={styles.aboutText}>
               <h2 className="title">
                 Notre engagement pour la santé à Kinshasa depuis plusieurs
@@ -63,9 +78,6 @@ const Home = () => {
                 République Démocratique du Congo, axé sur des soins accessibles
                 et de qualité dans diverses spécialités hospitalières.
               </p>
-            </div>
-            <div className={styles.aboutIllustration}>
-              <img src="" alt="" />
             </div>
           </div>
         </div>
@@ -127,15 +139,18 @@ const Home = () => {
       </section>
       <section className={styles.testimonials}>
         <div className="container">
+          <h2 className="title">Témoignages des patients</h2>
+          <p className="subtitle">
+            Ce que nos patients disent de la qualité de nos services
+          </p>
           <div className={styles.testimonialsContent}>
-            <div className={styles.testimonialsText}>
-              <h2 className="title">Ce que nos patients disent</h2>
+            {testimonials.map((testimonail) => (
+              <Testimonial key={testimonail.id} data={testimonail} />
+            ))}
+            {/* <div className={styles.testimonialsText}>
             </div>
             <div className={styles.testimonialsList}>
-              {testimonials.map((testimonail) => (
-                <Testimonial key={testimonail.id} data={testimonail} />
-              ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -147,9 +162,12 @@ const Home = () => {
               Contactez-nous dès maintenant pour planifier votre consultation et
               découvrir nos services de santé de qualité.
             </p>
-            <button className={styles.reservationCTA}>
-              Prendre rendez-vous
-            </button>
+            <div className={styles.reservationContent}>
+              <Link to={"/reservation"} className={styles.reservationCTA}>
+                <CalendarDotsIcon width={20} height={20} />
+                <span>Prendre rendez-vous</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>

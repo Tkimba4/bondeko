@@ -1,7 +1,7 @@
 @use "../../assets/styles/variables" as *;
 
 .testimonial {
-  background-color: white;
+  background-color: $smoke-color;
   padding: 40px;
 
   svg:nth-child(1) {

@@ -4,7 +4,41 @@ import {
   EnvelopeSimpleIcon,
 } from "@phosphor-icons/react/dist/ssr";
 
+const links = [
+  {
+    name: "home",
+    text: "Accueil",
+    link: "/",
+  },
+  {
+    name: "about",
+    text: "A propos",
+    link: "/",
+  },
+  {
+    name: "services",
+    text: "Services",
+    link: "/",
+  },
+  {
+    name: "reservations",
+    text: "Reservations",
+    link: "/reservation",
+  },
+  {
+    name: "contact",
+    text: "Contact",
+    link: "/",
+  },
+];
+
 const services = [
+  {
+    id: 3,
+    name: "Médecine générale",
+    desc: "Interventions chirurgicales de précision avec des spécialistes qualifiés.",
+    icon: "",
+  },
   {
     id: 1,
     name: "Gynecologie",
@@ -19,7 +53,7 @@ const services = [
     icon: "",
   },
   {
-    id: 3,
+    id: 4,
     name: "Chirurgie",
     desc: "Interventions chirurgicales de précision avec des spécialistes qualifiés.",
     icon: "",
@@ -85,13 +119,21 @@ const testimonials = [
   },
 ];
 const contact = [
-  { icon: <Phone />, label: "Tél.", value: "+243 840 000 000" },
-  { icon: <EnvelopeSimpleIcon />, label: "Email", value: "Bondeko@test.ucc" },
   {
-    icon: <MapPinLineIcon />,
+    icon: <Phone weight="duotone" />,
+    label: "Tél.",
+    value: "+243 840 000 000",
+  },
+  {
+    icon: <EnvelopeSimpleIcon weight="duotone" />,
+    label: "Email",
+    value: "Bondeko@test.ucc",
+  },
+  {
+    icon: <MapPinLineIcon weight="duotone" />,
     label: "Adresse",
     value: "3 Av 7e rue/Limete/kinshasa",
   },
 ];
 
-export { team, contact, services, statistiques, testimonials };
+export { links, team, contact, services, statistiques, testimonials };

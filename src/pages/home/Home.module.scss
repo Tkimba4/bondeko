@@ -1,7 +1,7 @@
 @use "../../assets/styles/variables" as *;
 
 .hero {
-  background-color: gray;
+  background-color: $smoke-color;
   :global(.container) {
     min-height: 500px;
     display: flex;
@@ -9,6 +9,32 @@
     justify-content: center;
     // justify-content: ;
   }
+}
+.heroSubtitle {
+  margin-bottom: 20px;
+}
+.heroCTA {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  a {
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+}
+.heroCTA1 {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  background-color: $primary-color;
+  color: white;
+  &:hover {
+  }
+}
+.heroCTA2 {
+  background-color: white;
+  color: $primary-color;
 }
 
 .aboutContent,
@@ -23,26 +49,41 @@
 }
 
 .services {
-  text-align: center;
+  // text-align: center;
   //   background-color: whitesmoke;
+  :global(.title),
+  :global(.subtitle) {
+    text-align: start;
+  }
+}
+.servicesList {
+  display: grid;
+  gap: 1rem;
 }
 .service {
   background-color: $smoke-color;
+  text-align: start;
+  text-wrap: balance;
   //   color: white;
   padding: 40px;
 }
 
 .about,
-.whyUs,
-.testimonials {
+.whyUs {
   background-color: $smoke-color;
 
   :global(.title) {
     text-align: initial;
   }
 }
-
-.statistiques {
+.aboutIllustration,
+.whyUsIllustration,
+.contactIllustration {
+  height: 500px;
+  background-color: gray;
+}
+.statistiquesContent {
+  gap: 2rem;
   //   background-color: $smoke-color;
 }
 .statistique {
@@ -54,6 +95,7 @@
 }
 
 .team {
+  display: none;
   text-align: center;
 }
 .teamContent {
@@ -76,18 +118,36 @@
   }
 }
 
-.testimonialsList {
-  display: grid;
-  gap: 1rem;
+// .testimonialsList {
+//   display: grid;
+//   gap: 1rem;
 
-  .testimonial {
-    padding: 20px;
-    background-color: white;
-    border-radius: $small-raduis;
-  }
-}
+//   .testimonial {
+//     padding: 20px;
+//     background-color: white;
+//     border-radius: $small-raduis;
+//   }
+// }
 .reservation {
   text-align: center;
+  background-color: $smoke-color;
+}
+.reservationContent {
+  display: grid;
+  justify-content: center;
+}
+.reservationCTA {
+  display: flex;
+  gap: 0.5rem;
+  padding: 8px 16px;
+  text-decoration: none;
+  align-items: center;
+  background-color: $primary-color;
+  color: white;
+  // max-width: 200px;
+  // margin: 0 auto;
+  &:hover {
+  }
 }
 
 .contactText {
@@ -101,13 +161,31 @@
   .testimonialsContent,
   .contactContent {
     grid-template-columns: repeat(2, 1fr);
+    align-items: center;
   }
-  .servicesContent,
+
+  .whyUsContent {
+    grid-template-areas: "text img";
+  }
+  .whyUsText {
+    grid-area: text;
+  }
+  .whyUsIllustration {
+    grid-area: img;
+  }
+
+  .servicesContent {
+    grid-template-columns: 0.5fr 1.5fr;
+    align-items: center;
+  }
+  .servicesList {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .teamContent {
     grid-template-columns: repeat(3, 1fr);
   }
   .statistiquesContent {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 }
