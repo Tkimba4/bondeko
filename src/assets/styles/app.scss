@@ -2,10 +2,13 @@
 @use "./variables" as *;
 
 //reset
-a{
-  
+a {
+  text-decoration: none;
 }
-
+ul,
+menu {
+  list-style: none;
+}
 
 html,
 body {
@@ -18,7 +21,7 @@ body {
   margin: 0 auto;
   padding: 80px 20px;
 }
-.BigTitle {
+.bigTitle {
   font-size: calc(20px + (80 - 40) * ((100vw - 300px) / (1600 - 300)));
 }
 .title {
@@ -35,6 +38,5 @@ body {
   // font-size: ;
 }
 
-btn{
-    
+btn {
 }

@@ -19,7 +19,7 @@ const Home = () => {
       <section className={styles.hero}>
         <div className={`${styles.heroContent} container`}>
           <div className={styles.heroText}>
-            <h1 className="BigTitle">
+            <h1 className="bigTitle">
               Votre santé, <br /> notre priorité
             </h1>
             <p className={styles.heroSubtitle}>

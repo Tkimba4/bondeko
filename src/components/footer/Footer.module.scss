@@ -1,0 +1,32 @@
+@use "../../assets/styles/variables" as *;
+
+.footer {
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.nav {
+  background-color: $smoke-color;
+  :global(.container) {
+    padding: 20px;
+  }
+}
+.navContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.menuItem {
+}

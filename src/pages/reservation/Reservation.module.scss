@@ -1,0 +1,112 @@
+@use "../../assets/styles/variables" as *;
+.hero {
+  background-color: $smoke-color;
+}
+
+.form {
+  //   background-color: $smoke-color;
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  //   gap: .5rem;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.156) 0 0 10px;
+  fieldset {
+    padding: 10px;
+    display: grid;
+    gap: 0.5rem;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+
+    legend {
+      display: none;
+    }
+  }
+  input,
+  textarea,
+  select {
+    padding: 10px;
+    border-radius: $input-raduis;
+    border: 1px solid rgba(128, 128, 128, 0.229);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  textarea {
+    resize: vertical;
+  }
+  button {
+    padding: 10px;
+    border-radius: $input-raduis;
+    border: 1px solid rgba(128, 128, 128, 0.229);
+    &:nth-child(1) {
+      background-color: black;
+      color: white;
+    }
+    &:nth-child(2) {
+      background-color: white;
+    }
+  }
+}
+
+.formGroup {
+  display: grid;
+  gap: 0.5rem;
+}
+
+@media #{$desktop} {
+  .form {
+    fieldset {
+      //   padding: 40px;
+      column-gap: 2rem;
+
+      &:nth-child(1) {
+        grid-template-areas:
+          "first_name last_name"
+          "email phone"
+          "birthday birthday";
+      }
+      &:nth-child(2) {
+        grid-template-areas:
+          "service service"
+          "date time"
+          "reason reason"
+          "note note";
+      }
+      &:nth-child(3) {
+        display: grid;
+        grid-template-columns: 1.5fr 0.5fr;
+        gap: 1rem;
+      }
+    }
+  }
+  .first_name {
+    grid-area: first_name;
+  }
+  .last_name {
+    grid-area: last_name;
+  }
+  .email {
+    grid-area: email;
+  }
+  .phone {
+    grid-area: phone;
+  }
+  .birthday {
+    grid-area: birthday;
+  }
+  .service {
+    grid-area: service;
+  }
+  .date {
+    grid-area: date;
+  }
+  .time {
+    grid-area: time;
+  }
+  .reason {
+    grid-area: reason;
+  }
+  .note {
+    grid-area: note;
+  }
+}
