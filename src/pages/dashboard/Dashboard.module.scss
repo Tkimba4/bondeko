@@ -1,0 +1,19 @@
+@use "../../assets/styles/variables" as *;
+
+.day_stats {
+  background-color: $smoke-color;
+}
+
+.day_stats_content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media #{$desktop} {
+  .day_stats_content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}
