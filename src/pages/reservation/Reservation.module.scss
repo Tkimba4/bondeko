@@ -1,21 +1,28 @@
 @use "../../assets/styles/variables" as *;
 .hero {
+  :global(.bigTitle){
+    margin-bottom: 20px;
+ 
+  }
+}
+.main{
+  
   background-color: $smoke-color;
 }
-
 .form {
-  //   background-color: $smoke-color;
+    background-color: white;
   max-width: 600px;
   margin: 0 auto;
   display: grid;
   //   gap: .5rem;
   padding: 10px;
-  box-shadow: rgba(0, 0, 0, 0.156) 0 0 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  // box-shadow: rgba(0, 0, 0, 0.156) 0 0 10px;
   fieldset {
     padding: 10px;
     display: grid;
     gap: 0.5rem;
-    background-color: white;
+    // background-color: white;
     border: none;
     border-radius: 10px;
 

@@ -1,0 +1,74 @@
+@use "../../assets/styles/variables" as *;
+
+.login {
+  background-color: $smoke-color;
+  height: 100vh;
+}
+
+.loginContent {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.nav {
+    display: inline-block;
+    
+  a {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: inherit;
+    transition: 0.3s;
+    &:hover {
+      color: $primary-color;
+      // background-color: rgba(0, 0, 0, 0.253);
+    }
+  }
+}
+.body {
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.129);
+}
+.icon {
+  text-align: center;
+  margin-bottom: 20px;
+  svg {
+    // background-color: $primary-color;
+    // color: white;
+    clip-path: circle();
+    // padding: 40px;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+
+  input {
+    padding: 10px;
+    border-radius: $input-raduis;
+    font-size: 1.1rem;
+    border: 1px solid rgba(128, 128, 128, 0.229);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  button {
+    padding: 10px;
+    border-radius: $input-raduis;
+    border: 1px solid rgba(128, 128, 128, 0.229);
+    background-color: black;
+    color: white;
+    // &:nth-child(1) {
+    // }
+  }
+}
+
+.formGroup {
+  gap: 0.5rem;
+
+  display: grid;
+}

@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Client from "./templates/client";
 import Home from "./pages/home";
 import Reservation from "./pages/reservation";
+import Admin from "./templates/admin";
+import Login from "./pages/login";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +23,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: "",
+    element: <Admin />,
     children: [
+      {
+        path: "",
+        element: <Login />,
+      },
       {
         path: "dashboard",
         element: "dashboard",
