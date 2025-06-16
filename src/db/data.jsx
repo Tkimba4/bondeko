@@ -1,7 +1,12 @@
 import {
+  ClockIcon,
+  ClockUserIcon,
+  EnvelopeSimpleIcon,
   MapPinLineIcon,
   Phone,
-  EnvelopeSimpleIcon,
+  UserCheckIcon,
+  UsersIcon,
+  XCircleIcon,
 } from "@phosphor-icons/react/dist/ssr";
 
 const links = [
@@ -146,4 +151,31 @@ const contact = [
   },
 ];
 
-export { links, team, contact, services, statistiques, testimonials };
+const dayStats = [
+  {
+    id: "",
+    title: "Total",
+    icon: <UsersIcon />,
+    description: "Total RDV",
+  },
+  {
+    id: "",
+    title: "Attente",
+    icon: <ClockUserIcon />,
+    description: "En attente",
+  },
+  {
+    id: "",
+    title: "Confirmé(s)",
+    icon: <UserCheckIcon />,
+    description: "RDV confirmés",
+  },
+  {
+    id: "",
+    title: "Annuler",
+    icon: <XCircleIcon />,
+    description: "RDV annulés",
+  },
+];
+
+export { contact, links, services, statistiques, team, testimonials, dayStats };

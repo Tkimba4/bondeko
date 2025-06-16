@@ -4,6 +4,7 @@ import Home from "./pages/home";
 import Reservation from "./pages/reservation";
 import Admin from "./templates/admin";
 import Login from "./pages/login";
+import Dashboard from "./pages/dashboard";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: "dashboard",
+        element: <Dashboard />,
       },
       {
         path: "manage",
