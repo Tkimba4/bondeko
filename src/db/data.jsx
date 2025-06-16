@@ -30,6 +30,16 @@ const links = [
     text: "Contact",
     link: "/",
   },
+  {
+    name: "admin",
+    text: "login",
+    link: "/admin",
+  },
+    {
+    name: "contact",
+    text: "Contact",
+    link: "/admin/dashboard",
+  },
 ];
 
 const services = [
