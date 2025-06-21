@@ -1,9 +1,8 @@
 import {
-  ClockIcon,
   ClockUserIcon,
   EnvelopeSimpleIcon,
   MapPinLineIcon,
-  Phone,
+  PhoneIcon,
   UserCheckIcon,
   UsersIcon,
   XCircleIcon,
@@ -135,7 +134,7 @@ const testimonials = [
 ];
 const contact = [
   {
-    icon: <Phone weight="duotone" />,
+    icon: <PhoneIcon weight="duotone" />,
     label: "Tél.",
     value: "+243 840 000 000",
   },
@@ -155,25 +154,25 @@ const dayStats = [
   {
     id: "",
     title: "Total",
-    icon: <UsersIcon />,
+    icon: <UsersIcon color="blue" />,
     description: "Total RDV",
   },
   {
     id: "",
     title: "Attente",
-    icon: <ClockUserIcon />,
+    icon: <ClockUserIcon color="orange" />,
     description: "En attente",
   },
   {
     id: "",
     title: "Confirmé(s)",
-    icon: <UserCheckIcon />,
+    icon: <UserCheckIcon color="green" />,
     description: "RDV confirmés",
   },
   {
     id: "",
     title: "Annuler",
-    icon: <XCircleIcon />,
+    icon: <XCircleIcon color="red" />,
     description: "RDV annulés",
   },
 ];

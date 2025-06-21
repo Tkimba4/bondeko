@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./DashboardStatistique.module.scss";
+import { CaretRightIcon } from "@phosphor-icons/react/dist/ssr";
 const DashboardStatistique = ({ elements, val = 1 }) => {
   const { title, icon, description } = elements;
 
@@ -10,7 +11,12 @@ const DashboardStatistique = ({ elements, val = 1 }) => {
         {icon}
       </div>
       <p className={styles.val}>{val}</p>
-      <p className={styles.description}>{description}</p>
+      <div className={styles.footer}>
+        <span className={styles.description}>{description}</span>
+        <button className={styles.btnList}>
+          <CaretRightIcon height={30} width={30}  />
+        </button>
+      </div>
     </div>
   );
 };

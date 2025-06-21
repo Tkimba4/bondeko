@@ -1,13 +1,82 @@
 @use "../../assets/styles/variables" as *;
-
-.day_stats {
+.dashboard {
+  position: relative;
   background-color: $smoke-color;
+  :global(.title) {
+    text-align: left;
+  }
+}
+
+.btnForm {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  background-color: $primary-color;
+  color: white;
+  padding: 15px;
+  clip-path: circle();
+  border: none;
+  display: grid;
+  justify-content: center;
+  &:hover{
+    cursor: pointer;
+  }
+}
+.day_stats {
 }
 
 .day_stats_content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.planing_content {
+  background-color: white;
+  height: 500px;
+  overflow-y: scroll;
+  display: grid;
+  gap: 1rem;
+  padding: 20px;
+}
+
+.main_content {
+  display: grid;
+  gap: 1rem;
+}
+
+.last_reservation {
+  // background-color: $smoke-color;
+  // padding: 20px;
+}
+
+.last_reservation_header {
+  display: grid;
+  // gap: 1re;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.filter {
+  background-color: white;
+  border: none;
+  padding: 20px 0;
+  transition: 0.3s;
+  font-weight: 500;
+  &:hover {
+    cursor: pointer;
+    background-color: $smoke-color;
+  }
+  &.active {
+    background-color: $dark-color;
+    color: white;
+  }
+}
+
+.last_reservation_main {
+  min-height: 300px;
+  background-color: white;
+  border-radius: 0 0 10px 10px;
 }
 
 @media #{$desktop} {
@@ -15,5 +84,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+  }
+  .main_content {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

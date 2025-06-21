@@ -1,0 +1,51 @@
+@use "../../assets/styles/variables" as *;
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  justify-content: center;
+  z-index: 5;
+//   display: none;
+  // overflow-y: ;
+}
+
+.body {
+  max-height: 800px;
+  max-width: 800px;
+  width: 500px;
+  background-color: white;
+  margin: 80px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.form {
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $smoke-color;
+    padding: 10px;
+    font-size: 1.1rem;
+
+    &:focus-visible {
+      outline: none;
+      border-bottom-color: black;
+    }
+  }
+}
+
+.reservationsList {
+  height: 90%;
+  overflow-y: scroll;
+}
+
+@media #{$desktop} {
+  .body {
+    min-width: 800px;
+  }
+}

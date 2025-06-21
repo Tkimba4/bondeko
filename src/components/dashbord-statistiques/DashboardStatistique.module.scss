@@ -1,25 +1,42 @@
 @use "../../assets/styles/variables" as *;
 
-.statistique{
-    background-color: white;
-    border-radius: 10px;
-    padding: 40px;
-    min-width: 200px;
+.statistique {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  min-width: 200px;
 }
-.head{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
+.head,
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 
-    svg{
-        width: 30px;
-        height: 30px;
-    }
-
+  svg {
+    width: 30px;
+    height: 30px;
+  }
 }
 
-.val{
-    font-size: large;
-    margin: 10px 0;
+.val {
+  font-size: large;
+  margin: 10px 0;
+}
+
+.btnList {
+  background-color: transparent;
+  border: none;
+  transition: 0.3s background-color;
+  clip-path: circle();
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  &:hover {
+    cursor: pointer;
+    // transform: scale(1.1);
+    background-color: $primary-color;
+    color: white;
+  }
 }

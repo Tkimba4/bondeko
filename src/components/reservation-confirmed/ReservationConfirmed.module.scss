@@ -1,0 +1,41 @@
+@use "../../assets/styles/variables" as *;
+.reservation {
+  display: flex;
+  // flex-direction: ;
+  gap: 1rem;
+  align-items: center;
+}
+
+.avatar {
+  background-color: $smoke-color;
+  // padding: 50px;
+  width: 100px;
+  height: 100px;
+  clip-path: circle();
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.name{
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.number{
+    display: flex;
+    gap: 1rem;
+}
+
+.age{
+    font-weight: 500;
+    color: $primary-color;
+}
+
+@media #{$desktop} {
+  .reservation {
+    // display: flex;
+  }
+}
