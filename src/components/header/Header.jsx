@@ -12,8 +12,8 @@ const Header = () => {
               <Link to={"/"}>Bondeko</Link>
             </div>
             <div className={styles.menu}>
-              {links.map((link) => (
-                <li key={link.name} className={styles.menuItem}>
+              {links.map((link, key) => (
+                <li key={key} className={styles.menuItem}>
                   <Link to={link.link}>{link.text}</Link>
                 </li>
               ))}
