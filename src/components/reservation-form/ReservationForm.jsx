@@ -32,22 +32,23 @@ const ReservationForm = () => {
       },
       body: JSON.stringify(formData),
     });
-
+    console.log("send...");
+    
     if (sendData.status === 201) {
       alert("Tout s'est bien passé! ");
     }
 
-    // setFormatData({
-    //   first_name: "",
-    //   last_name: "",
-    //   email: "",
-    //   phone: "",
-    //   birthday: "",
-    //   day_date: "",
-    //   day_time: "",
-    //   service: "",
-    //   reason: "",
-    // });
+    setFormatData({
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone: "",
+      birthday: "",
+      day_date: "",
+      day_time: "",
+      service: "",
+      reason: "",
+    });
   };
 
   useEffect(() => {
@@ -138,8 +139,8 @@ const ReservationForm = () => {
               onChange={handleChange}
             >
               {services.map((service, key) => (
-                <option key={key} value={service}>
-                  {service}
+                <option key={key} value={service.id}>
+                  {service.name}
                 </option>
               ))}
             </select>
@@ -166,10 +167,10 @@ const ReservationForm = () => {
               value={formData.day_time}
               onChange={handleChange}
             >
-              <option value={1} defaultValue>
+              <option value={0} defaultValue>
                 {"Avant midi"}
               </option>
-              <option value={2}>{"Après midi"}</option>
+              <option value={1}>{"Après midi"}</option>
             </select>
             <p className={styles.error}></p>
           </div>
