@@ -4,7 +4,7 @@ import {
   contact,
   services,
   statistiques,
-  team,
+  // team,
   testimonials,
 } from "../../db/data";
 import Service from "../../components/service";
@@ -66,14 +66,11 @@ const Home = () => {
         <div className="container">
           <div className={styles.aboutContent}>
             <div className={styles.aboutIllustration}>
-              <img src="" alt="" />
+              <img src="img/about.jpg" alt="" />
             </div>
             <div className={styles.aboutText}>
-              <h2 className="title">
-                Notre engagement pour la santé à Kinshasa depuis plusieurs
-                années
-              </h2>
-              <p className="">
+              <h2 className="title">Notre engagement</h2>
+              <p className="subtitle">
                 La Clinique Bondeko est un établissement médical innovant en
                 République Démocratique du Congo, axé sur des soins accessibles
                 et de qualité dans diverses spécialités hospitalières.
@@ -95,11 +92,11 @@ const Home = () => {
         <div className="container">
           <div className={styles.whyUsContent}>
             <div className={styles.whyUsIllustration}>
-              <img src="" alt="" />
+              <img src="img/why-us.jpg" alt="" />
             </div>
             <div className={styles.whyUsText}>
               <h2 className="title">Pourquoi nous choisir</h2>
-              <p>
+              <p className="subtitle">
                 Une clinique qui allie expertise médicale, attention
                 personnalisée et engagement communautaire pour votre bien-être.
               </p>
@@ -112,7 +109,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className={styles.team}>
+      {/* <section className={styles.team}>
         <div className="container">
           <h2 className="title">Notre équipe</h2>
           <p className="subtitle">
@@ -136,11 +133,11 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
       <section className={styles.testimonials}>
         <div className="container">
-          <h2 className="title">Témoignages des patients</h2>
-          <p className="subtitle">
+          <h2 className="title center">Témoignages des patients</h2>
+          <p className="subtitle center">
             Ce que nos patients disent de la qualité de nos services
           </p>
           <div className={styles.testimonialsContent}>
@@ -173,13 +170,13 @@ const Home = () => {
       </section>
       <section className={styles.contant}>
         <div className="container">
-          <h2 className="title">Contactez-nous</h2>
-          <p className="subtitle">
+          <h2 className="title center">Contactez-nous</h2>
+          <p className="subtitle center">
             Nous sommes là pour répondre à vos questions
           </p>
           <div className={styles.contactContent}>
             <div className={styles.contactIllustration}>
-              <img src="" alt="" />
+              <img src="img/contact.jpg" alt="" />
             </div>
             <div className={styles.contactText}>
               {contact.map((c, index) => (

@@ -72,14 +72,23 @@
 .whyUs {
   background-color: $smoke-color;
 
-  :global(.title) {
-    text-align: initial;
+  ul {
+    list-style-type: "✅";
+    li {
+      margin-left: 40px;
+      font-size: 1.2rem;
+      padding: 10px;
+    }
   }
 }
 .aboutIllustration,
 .whyUsIllustration,
 .contactIllustration {
-  height: 500px;
+  // height: 500px;
+  display: grid;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
   background-color: gray;
 }
 .statistiquesContent {
@@ -130,7 +139,14 @@
 // }
 .reservation {
   text-align: center;
-  background-color: $smoke-color;
+  background-color: $primary-color;
+  :global(.title),
+  :global(.subtitle) {
+    color: white;
+    &::first-letter{
+      color: white;
+    }
+  }
 }
 .reservationContent {
   display: grid;
@@ -142,8 +158,8 @@
   padding: 8px 16px;
   text-decoration: none;
   align-items: center;
-  background-color: $primary-color;
-  color: white;
+  background-color: white;
+  color: $primary-color;
   // max-width: 200px;
   // margin: 0 auto;
   &:hover {
@@ -180,6 +196,7 @@
   }
   .servicesList {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0;
   }
   .teamContent {
     grid-template-columns: repeat(3, 1fr);

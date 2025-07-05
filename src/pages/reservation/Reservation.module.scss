@@ -1,5 +1,7 @@
 @use "../../assets/styles/variables" as *;
 .hero {
+  background-color: $primary-color;
+  color: white;
   :global(.bigTitle){
     margin-bottom: 20px;
  

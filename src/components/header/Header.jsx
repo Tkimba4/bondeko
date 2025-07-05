@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Header.module.scss";
 import { links } from "../../db/data";
 import { Link } from "react-router-dom";
+import { HospitalIcon } from "@phosphor-icons/react";
 const Header = () => {
   return (
     <header className={styles.header}>
@@ -9,7 +10,10 @@ const Header = () => {
         <div className="container">
           <div className={styles.navContent}>
             <div className={styles.logo}>
-              <Link to={"/"}>Bondeko</Link>
+              <Link to={"/"}>
+                <HospitalIcon size={32} weight="duotone" />
+                <span className={styles.logoText}>Bondeko</span>
+              </Link>
             </div>
             <div className={styles.menu}>
               {links.map((link, key) => (

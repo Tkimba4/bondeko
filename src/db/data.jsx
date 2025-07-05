@@ -1,8 +1,12 @@
 import {
+  BabyIcon,
+  BedIcon,
   ClockUserIcon,
   EnvelopeSimpleIcon,
   MapPinLineIcon,
   PhoneIcon,
+  StethoscopeIcon,
+  SyringeIcon,
   UserCheckIcon,
   UsersIcon,
   XCircleIcon,
@@ -29,16 +33,16 @@ const links = [
     text: "Reservations",
     link: "/reservation",
   },
-  {
-    name: "contact",
-    text: "Contact",
-    link: "/",
-  },
-  {
-    name: "admin",
-    text: "login",
-    link: "/admin",
-  },
+  // {
+  //   name: "contact",
+  //   text: "Contact",
+  //   link: "/",
+  // },
+  // {
+  //   name: "admin",
+  //   text: "login",
+  //   link: "/admin",
+  // },
     {
     name: "contact",
     text: "Contact",
@@ -51,33 +55,33 @@ const services = [
     id: 3,
     name: "Médecine générale",
     desc: "Interventions chirurgicales de précision avec des spécialistes qualifiés.",
-    icon: "",
+    icon: <BedIcon weight="duotone" />,
   },
   {
     id: 1,
     name: "Gynecologie",
     desc: "Des soins gynécologiques complets pour la santé des femmes.",
-    icon: "",
+    icon: <StethoscopeIcon weight="duotone" />,
   },
 
   {
     id: 2,
     name: "Pédiatrie",
     desc: "Soins médicaux spécialisés pour enfants et adolescents.",
-    icon: "",
+    icon: <BabyIcon weight="duotone" />,
   },
   {
     id: 4,
     name: "Chirurgie",
     desc: "Interventions chirurgicales de précision avec des spécialistes qualifiés.",
-    icon: "",
+    icon: <SyringeIcon weight="duotone" />,
   },
 ];
 
 const statistiques = [
   {
     id: 1,
-    label: "+50",
+    label: "+30",
     desc: "Années d'expérience",
   },
   {
@@ -87,7 +91,7 @@ const statistiques = [
   },
   {
     id: 3,
-    label: "+1M",
+    label: "+5M",
     desc: "Patients satisfaits",
   },
   {

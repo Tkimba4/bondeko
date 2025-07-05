@@ -1,13 +1,47 @@
 @use "../../assets/styles/variables" as *;
 
 .service {
-  background-color: $smoke-color;
-  padding: 40px;
+  background-color: $primary-color;
+  padding: 20px;
   display: grid;
   gap: 1rem;
+  color: white;
+  // border-radius: 5px;
+  justify-content: start;
+  justify-items: start;
 }
 
+.icon{
+  background-color: white;
+  padding: 10px;
+  clip-path: circle();
+  
+  svg{
+    color: $primary-color;
+    height: 40px;
+    width: 40px;
+  }
+}
 .title {
-  font-weight: 600;
-  font-size: 2rem;
+  font-weight: 500;
+  font-size: 1.5rem;
+  // padding-bottom: ;
+
+  &:after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 5px;
+    background-color: white;
+    margin-top: 20px;
+  }
+}
+
+@media #{$desktop} {
+  .service{
+    &:nth-child(1),
+    &:nth-child(4) {
+      background-color: $primary-light-color;
+    }
+  }
 }

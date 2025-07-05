@@ -11,18 +11,27 @@
 .navContent {
   display: flex;
   justify-content: space-between;
+}
 
-  a {
-    all: unset;
-    transition: 0.3s;
-    &:hover {
-      color: $primary-color;
-    }
-  }
+.logo a {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  color: $primary-color;
 }
 
 .menu {
   list-style-type: none;
   display: flex;
   gap: 1rem;
+}
+.menuItem a{
+  color: inherit;
+  transition: .3s;
+  text-transform: uppercase;
+  &:hover{
+    color: $primary-color;
+  }
 }
