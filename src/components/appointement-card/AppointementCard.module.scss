@@ -1,0 +1,40 @@
+@use "../../assets/styles/variables" as *;
+
+.card {
+    background-color: $smoke-color;
+    padding: 20px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+.head_actions{
+    display: grid;
+    gap: .5rem;
+}
+.heade_icon{
+
+}
+.head_btn{
+    transition: .3s;
+    border: none;
+    background-color: transparent;
+    
+}
+
+.body {
+  transition: 0.3s;
+  height: 0;
+    overflow: hidden;
+}
+
+.open {
+    .head_btn{
+        transform: rotate(90deg);
+    }
+  .body {
+    height: 200px;
+    // background-color: red;
+  }
+}

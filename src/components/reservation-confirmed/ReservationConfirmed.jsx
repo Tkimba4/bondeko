@@ -20,9 +20,9 @@ const ReservationConfirmed = ({ info }) => {
         </div>
         <p className={styles.service}>{"Service Service"}</p>
       </div>
-      <buttonx>
+      <button>
         <CaretRightIcon width={30} height={30} />
-      </buttonx>
+      </button>
     </div>
   );
 };

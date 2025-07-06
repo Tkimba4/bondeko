@@ -2,9 +2,6 @@
 .dashboard {
   position: relative;
   background-color: $smoke-color;
-  :global(.title) {
-    text-align: left;
-  }
 }
 
 .btnForm {
@@ -21,24 +18,95 @@
   &:hover{
     cursor: pointer;
   }
+  display: none;
 }
-.day_stats {
-}
+// .statistiques {
+//   :global(.title){
+//     text-align: center;
+//   }
+// }
 
-.day_stats_content {
+.statistiques_content {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
 }
 
-.planing_content {
-  background-color: white;
-  height: 500px;
-  overflow-y: scroll;
+//resservations
+.reservations{
+  :global(.container){
+    padding: 0 20px;
+  }
+}
+.reservations_content{
   display: grid;
   gap: 1rem;
+}
+
+//waiting...
+.waiting, .planing{
+  background-color: white;
   padding: 20px;
+  border-radius: 10px;
+}
+
+.waiting_list{
+  display: grid;
+  gap: 1rem;
+  margin-top: 20px;
+  height: 300px;
+  overflow-y: scroll;
+
+}
+
+.wait_res{
+  padding: 10px;
+  background-color: $smoke-color;
+  border-radius: 10px;
+  display: grid;
+  gap: .5rem;
+  position: relative;
+  .wait_res_name{
+    font-weight: 500;
+  }
+
+  &::after{
+    content: "Attente";
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: orange;
+    border: 1px solid;
+    // background-color: red;
+    padding: 5px;
+    border-radius: 40%;
+    // clip-path: view-box;
+    font-size: .8rem;
+
+  }
+}
+
+.waiting_btn{
+  display: grid;
+  margin-top: 20px;
+  a{
+    background-color: white;
+    border: 1px solid $smoke-color;
+    color: initial;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+}
+.planing_content {
+  // background-color: white;
+  // height: 500px;
+  // overflow-y: scroll;
+  // display: grid;
+  // gap: 1rem;
+  // padding: 20px;
 }
 
 .main_content {
@@ -83,9 +151,14 @@
   .day_stats_content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 2rem;
   }
   .main_content {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .reservations_content{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
