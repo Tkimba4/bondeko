@@ -16,7 +16,6 @@ export const getAppointments = async () => {
 export const createAppointments = async (appointment) => {
   const res = await axios.post(BASE_URL, appointment);
   return res.data;
-  
 };
 
 export const deleteAppointment = async (id) => {
@@ -24,11 +23,12 @@ export const deleteAppointment = async (id) => {
   return id;
 };
 
-export const update = async(appointment) =>{
-  await axios.patch(`${BASE_URL}/${appointment.id}`, appointment)
-}
-
-export const updateAppointments = async (appointment) => {
-  const res = await axios.put(`${BASE_URL}/${appointment.id}`, appointment);
-  return res.data;
+export const updateAppointment = async (appointment) => {
+  await axios.patch(`${BASE_URL}/${appointment.id}`, appointment);
+  return appointment;
 };
+
+// export const updateAppointments = async (appointment) => {
+//   const res = await axios.put(`${BASE_URL}/${appointment.id}`, appointment);
+//   return res.data;
+// };

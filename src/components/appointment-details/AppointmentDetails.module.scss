@@ -1,0 +1,166 @@
+@use "../../assets/styles/variables" as *;
+
+// .details {
+//   background-color: $smoke-color;
+//   padding: 20px;
+//   border-radius: 10px;
+// }
+
+.group {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}
+.state {
+  border-radius: 20px;
+  border: 1px solid;
+  padding: 5px 10px;
+}
+
+// .footer {
+//   margin-top: 10px;
+//   border-top: 1px solid rgba(128, 128, 128, 0.1);
+//   padding-top: 20px;
+//   display: flex;
+//   justify-content: space-between;
+// }
+
+.header {
+  @extend .group;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding-bottom: 20px;
+  align-items: center;
+}
+
+.waiting_state {
+  @extend .state;
+  color: orange;
+}
+.confirmed_state {
+  @extend .state;
+  color: green;
+  border-color: green;
+}
+.canceled_state {
+  @extend .state;
+  color: red;
+}
+.header_cta {
+  display: flex;
+  gap: 0.5rem;
+
+  button {
+    border: 1px solid gray;
+    // border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: white;
+    transition: 0.3s background-color;
+    &[data-action="CONFIRMED"] {
+      color: green;
+      svg {
+        color: green;
+      }
+      &:hover {
+        background-color: green;
+        color: white;
+        svg {
+          color: white;
+        }
+      }
+    }
+    &[data-action="CANCELED"] {
+      color: red;
+      svg {
+        color: red;
+      }
+      &:hover {
+        background-color: red;
+        color: white;
+        svg {
+          color: white;
+        }
+      }
+    }
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+.profil {
+  @extend .group;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.profil_img {
+  div {
+    height: 100px;
+    width: 100px;
+    background-color: $smoke-color;
+    clip-path: circle();
+  }
+}
+
+.profil_text {
+  display: grid;
+  gap: 0.5rem;
+}
+.profil_infos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.3rem;
+}
+.email,
+.phone {
+  display: flex;
+  justify-items: start;
+  align-items: center;
+  gap: 0.5rem;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+.name {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.contact,
+.contact span {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: $dark-color;
+}
+.consultation_info {
+  @extend .group;
+}
+
+//
+.info_group {
+  margin: 10px 0;
+}
+
+.info_label,
+.title {
+  font-size: 0.9rem;
+}
+.info_value {
+  opacity: 0.5;
+}
+
+.cta_delete{
+  @extend .group;
+  a{
+    color: red;
+  }
+}

@@ -24,7 +24,7 @@ export const removeAppointment = createAsyncThunk(
 );
 export const updateAppointment = createAsyncThunk(
   "tasks/updateTask",
-  api.update
+  api.updateAppointment
 );
 
 const appointmentsSlice = createSlice({
@@ -59,10 +59,11 @@ const appointmentsSlice = createSlice({
       })
 
       .addCase(updateAppointment.fulfilled, (state, action) => {
-        // const index = state.appointments.findIndex((t) => t.id === action.payload.id);
-        // if (index !== -1) {
-        //   state.appointments[index] = action.payload;
-        // }
+
+        const index = state.appointments.findIndex((t) => t.id === action.payload.id);
+        if (index !== -1) {
+          state.appointments[index].state = action.payload.state;
+        }
       });
   },
 });

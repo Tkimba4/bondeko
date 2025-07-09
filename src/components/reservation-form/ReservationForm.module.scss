@@ -1,8 +1,7 @@
 @use "../../assets/styles/variables" as *;
 
-
 .form {
-    background-color: white;
+  background-color: white;
   max-width: 600px;
   margin: 0 auto;
   display: grid;
@@ -52,7 +51,6 @@
   gap: 0.5rem;
 }
 
-
 @media #{$desktop} {
   .form {
     fieldset {
@@ -69,7 +67,7 @@
         grid-template-areas:
           "service service"
           "date time"
-          "reason reason"
+          "motif motif"
           "note note";
       }
       &:nth-child(3) {
@@ -103,8 +101,8 @@
   .time {
     grid-area: time;
   }
-  .reason {
-    grid-area: reason;
+  .motif {
+    grid-area: motif;
   }
   .note {
     grid-area: note;

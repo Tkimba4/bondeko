@@ -17,21 +17,19 @@ const AppointementCard = ({ info }) => {
     phone,
     email,
     birthday,
-    day_date,
-    day_time,
+    date,
+    time,
     service,
     motif,
     state,
     id,
     created_at,
   } = info;
-  if (day_time === 0) {
-    day_time = "Avant midi";
+  if (time === 0) {
+    time = "Avant midi";
   } else {
-    day_time = "Après midi";
+    time = "Après midi";
   }
-
-  //   console.log(id);
 
   const dispatch = useDispatch();
 
@@ -109,8 +107,8 @@ const AppointementCard = ({ info }) => {
         <div className={styles.info_group}>
           <h5 className={styles.title}>Date et temps souhaité</h5>
           <div className={styles.info_text}>
-            <span className={styles.info_value}>{day_date}</span> {" - "}
-            <span className={styles.info_value}>{day_time}</span>
+            <span className={styles.info_value}>{date}</span> {" - "}
+            <span className={styles.info_value}>{time}</span>
           </div>
         </div>
         <div className={styles.info_group}>

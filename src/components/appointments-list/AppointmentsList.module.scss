@@ -1,0 +1,48 @@
+@use "../../assets/styles/variables" as *;
+
+.form {
+  input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $smoke-color;
+    padding: 10px;
+    font-size: 1.1rem;
+
+    &:focus-visible {
+      outline: none;
+      border-bottom-color: black;
+    }
+  }
+  margin-bottom: 20px;
+}
+
+.appointments_list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.appointment_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  color: initial;
+  // background-color: $smoke-color;
+  transition: 0.3s;
+  &:hover {
+    background-color: $smoke-color;
+  }
+
+  &.active {
+    background-color: $smoke-color;
+  }
+}
+
+.appointment_name {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.appointment_description {
+  font-size: 0.9rem;
+}

@@ -5,6 +5,7 @@ import Reservation from "./pages/reservation";
 import Admin from "./templates/admin";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
+import Appointments from "./pages/appointments";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
         path: "manage",
         element: "manage",
       },
+      {
+        path : "appointments",
+        element : <Appointments />  
+      }
     ],
   },
 ]);

@@ -2,21 +2,22 @@ import React, { useEffect, useState } from "react";
 import styles from "./ReservationForm.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchServices } from "../../features/servicesSlice";
+import { addAppointment } from "../../features/appointmentsSlice";
 
 const ReservationForm = () => {
+  const { services } = useSelector((state) => state.services);
+  const dispatch = useDispatch();
 
-  const {services} =  useSelector(state => state.services)
-  const dispatch = useDispatch()
   const [formData, setFormatData] = useState({
     first_name: "",
     last_name: "",
     email: "",
     phone: "",
     birthday: "",
-    day_date: "",
-    day_time: "",
+    date: "",
+    time: "",
     service: "",
-    reason: "",
+    motif: "",
   });
 
   const handleChange = (e) => {
@@ -29,18 +30,7 @@ const ReservationForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const sendData = await fetch("http://localhost:4000/bondeko/reservations", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-    console.log("send...");
-      dispatch()
-    if (sendData.status === 201) {
-      alert("Tout s'est bien passé! ");
-    }
+    dispatch(addAppointment(formData));
 
     setFormatData({
       first_name: "",
@@ -48,18 +38,31 @@ const ReservationForm = () => {
       email: "",
       phone: "",
       birthday: "",
-      day_date: "",
-      day_time: "",
+      date: "",
+      time: "",
       service: "",
-      reason: "",
+      motif: "",
     });
   };
 
   useEffect(() => {
-    if(!services.length){
-      dispatch(fetchServices())
+    if (!services.length) {
+      dispatch(fetchServices());
     }
   }, [services]);
+
+  const minDate = () => {
+    const today = new Date();
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+
+    // Formater au format YYYY-MM-DD (nécessaire pour l'attribut min)
+    const yyyy = tomorrow.getFullYear();
+    const mm = String(tomorrow.getMonth() + 1).padStart(2, "0");
+    const dd = String(tomorrow.getDate()).padStart(2, "0");
+    const minDate = `${yyyy}-${mm}-${dd}`;
+    return minDate;
+  };
 
   console.log(services);
   return (
@@ -151,20 +154,21 @@ const ReservationForm = () => {
             <input
               type="date"
               required
-              name="day_date"
-              id="day_date"
-              value={formData.day_date}
+              name="date"
+              id="date"
+              value={formData.date}
               onChange={handleChange}
+              min={minDate()}
             />
             <p className={styles.error}></p>
           </div>
           <div className={`${styles.formGroup} ${styles.time}`}>
-            <label htmlFor="day_time">Heure souhaité</label>
+            <label htmlFor="time">Heure souhaité</label>
             <select
               required
-              name="day_time"
-              id="day_time"
-              value={formData.day_time}
+              name="time"
+              id="time"
+              value={formData.time}
               onChange={handleChange}
             >
               <option value={0} defaultValue>
@@ -174,13 +178,13 @@ const ReservationForm = () => {
             </select>
             <p className={styles.error}></p>
           </div>
-          <div className={`${styles.formGroup} ${styles.reason}`}>
-            <label htmlFor="reason">Motif de la consultation</label>
+          <div className={`${styles.formGroup} ${styles.motif}`}>
+            <label htmlFor="motif">Motif de la consultation</label>
             <textarea
-              name="reason"
+              name="motif"
               rows={5}
-              id="reason"
-              value={formData.reason}
+              id="motif"
+              value={formData.motif}
               onChange={handleChange}
             />
             <p className={styles.error}></p>
