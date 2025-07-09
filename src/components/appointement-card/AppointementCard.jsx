@@ -1,5 +1,14 @@
-import { CaretRightIcon, ClockIcon } from "@phosphor-icons/react";
+import {
+  CaretRightIcon,
+  CheckCircleIcon,
+  ClockIcon,
+  EnvelopeSimpleIcon,
+  PhoneIcon,
+  XCircleIcon,
+} from "@phosphor-icons/react";
 import styles from "./AppointementCard.module.scss";
+import { useDispatch } from "react-redux";
+import { updateAppointment } from "../../features/appointmentsSlice";
 
 const AppointementCard = ({ info }) => {
   let {
@@ -12,41 +21,72 @@ const AppointementCard = ({ info }) => {
     day_time,
     service,
     motif,
-    created_at
+    state,
+    id,
+    created_at,
   } = info;
   if (day_time === 0) {
     day_time = "Avant midi";
   } else {
     day_time = "Après midi";
   }
-  
+
+  //   console.log(id);
+
+  const dispatch = useDispatch();
+
   function handle(e) {
-    const card = document.querySelector(`.${styles.card}`);
-    card.classList.toggle(styles.open);
-    // console.log(card);
+    const elId = e.currentTarget.getAttribute("data-id");
+    const card = document.querySelector(`.${styles.card}[data-id='${elId}']`);
+    document.querySelectorAll(`.${styles.card}`).forEach((cardE) => {
+      if (cardE.getAttribute("data-id") == elId) {
+        card.classList.toggle(styles.open);
+      } else {
+        cardE.classList.remove(styles.open);
+      }
+    });
+  }
+
+  function handleAction(e){
+    const action = e.currentTarget.getAttribute('data-action')
+    e.preventDefault();
+
+    dispatch(updateAppointment({
+        id,
+        state : action
+        // 
+    }))
   }
 
   return (
-    <div className={styles.card}>
+    <div className={styles.card} data-id={id}>
       <header className={styles.header}>
         <div className={styles.head_info}>
-          <h4 className={styles.head_name}>
+          <h4 className={styles.name}>
             {first_name} {last_name}
           </h4>
-          <div className={styles.head_info}>
-            {/* <span className={styles.head_service}>
-                {service}
-            </span> */}
-            <span className={styles.head_contact}>
-              {email} - {phone}
+          <div className={styles.contact}>
+            <span className={styles.email}>
+              <EnvelopeSimpleIcon /> <span>{email}</span>
+            </span>
+            {" - "}
+            <span className={styles.email}>
+              <PhoneIcon /> <span>{phone}</span>
             </span>
           </div>
+          {/* <div className={styles.head_info}>
+            <span className={styles.head_service}>
+                {service}
+            </span>
+          </div> */}
         </div>
         <div className={styles.head_actions}>
-          <span className={styles.head_icon}>
-            <ClockIcon />
-          </span>
-          <button className={styles.head_btn} onClick={handle}>
+          {/* <ClockIcon className={styles.head_icon} /> */}
+          <button
+            className={styles.head_btn}
+            onClick={handle}
+            data-id={`${id}`}
+          >
             <CaretRightIcon width={24} height={24} />
           </button>
         </div>
@@ -89,9 +129,39 @@ const AppointementCard = ({ info }) => {
         </div>
       </div>
       <footer className={styles.footer}>
-        <div className={styles.footer_cta}>
-          <button className={`${styles.btn} btn`}></button>
-        </div>
+        {/* <div className={styles.footer_cta}> */}
+        {state === "WAITING" ? (
+          // "ATTENTE"
+          <>
+            <div className={styles.footer_state}>Attente</div>
+            <div className={styles.footer_cta}>
+              <button className={`${styles.btn} btn`} onClick={handleAction} data-action="CONFIRMED">
+                <span>
+                  <CheckCircleIcon />
+                </span>
+                <span>Confrmer</span>
+              </button>
+              <button className={`${styles.btn} btn`}>
+                <span>
+                  <XCircleIcon />
+                </span>
+                <span>Annuler</span>
+              </button>
+            </div>
+          </>
+        ) : state === "CANCELED" ? (
+          "ANULLER"
+        ) : state === "CONFIRMED" ? (
+          <>
+            <button className={`${styles.btn} btn`}>
+              <span>
+                <XCircleIcon />
+              </span>
+              <span>Annuler</span>
+            </button>
+          </>
+        ) : null}
+        {/* </div> */}
       </footer>
     </div>
   );

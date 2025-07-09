@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.scss";
 // import { dayStats } from "../../db/data";
 import DashboardStatistique from "../../components/dashbord-statistiques";
-import ReservationConfirmed from "../../components/reservation-confirmed";
-import { PlusIcon } from "@phosphor-icons/react";
-import ModalReservations from "../../components/modal-reservations";
+// import ReservationConfirmed from "../../components/reservation-confirmed";
+// import { PlusIcon } from "@phosphor-icons/react";
+// import ModalReservations from "../../components/appointments-modal";
 
 import {
   BabyIcon,
@@ -24,27 +24,23 @@ import {
 import Section from "../../components/section";
 import { Link } from "react-router-dom";
 import AppointementCard from "../../components/appointement-card";
+import { apFilter } from "../../helpers/functions";
+import AppointmentsModal from "../../components/appointments-modal";
+// import { getAppointments } from "../../api/appointmentsApi";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAppointments } from "../../features/appointmentsSlice";
 
 const Dashboard = () => {
-  function resFilter(data, filter) {
-    const [col, val] = filter;
-    if (val === "ALL") {
-      return data;
-    }
-    return data.filter((res) => res[col] === val);
-  }
-
-  const [reservations, setReservations] = useState([]);
+  // const [manage, setManage] = useState(false);
+  const dispatch = useDispatch()
+  const {appointments} = useSelector((state) => state.appointments)
 
   useEffect(() => {
-    async function getReservations() {
-      const data = await fetch("http://localhost:4000/bondeko/reservations");
-      const resJson = await data.json();
-      setReservations(resJson);
+    if(!appointments.length){
+      dispatch(fetchAppointments())
     }
-
-    getReservations();
-  }, []);
+  }, [appointments]);
+  
 
   return (
     <div className={styles.dashboard}>
@@ -53,7 +49,7 @@ const Dashboard = () => {
           {statistiques.map((stat) => (
             <DashboardStatistique
               elements={stat}
-              stat={resFilter(reservations, ["state", stat.filter])}
+              stat={apFilter(appointments, ["state", stat.filter])}
               key={stat.filter}
             />
           ))}
@@ -68,21 +64,15 @@ const Dashboard = () => {
             </h2>
             <p>Rendez-vous récents en attente de confirmation</p>
             <div className={styles.waiting_list}>
-              {resFilter(reservations, ["state", "WAITING"]).map((res) => (
-                // <div className={styles.wait_res}>
-                //   <h5 className={styles.wait_res_name}>
-                //     {`${res.first_name} ${res.last_name}`}
-                //   </h5>
-                //   <p className={styles.wait_res_info}>
-                //     {` ${res.service_id} - ${res.day_date}`}
-                //   </p>
-                // </div>
+              {apFilter(appointments, ["state", "WAITING"]).map((res) => (
                 <AppointementCard info={res} />
               ))}
             </div>
-              <div className={styles.waiting_btn}>
-                <Link to="">Gérér les demandes</Link>
-              </div>
+            <div className={styles.waiting_btn}>
+              <Link to="" onClick={(e) => " setManage(true)"}>
+                Gérér les demandes
+              </Link>
+            </div>
           </div>
           <div className={styles.planing}>
             <h2 className="title">
@@ -92,7 +82,7 @@ const Dashboard = () => {
             <p>
               {`
                 ${
-                  resFilter(reservations, ["state", "ACCEPTED"]).length
+                  apFilter(appointments, ["state", "ACCEPTED"]).length
                 } Rendez-vous aujourd'hui
               `}
             </p>
@@ -108,7 +98,11 @@ const Dashboard = () => {
         <PlusIcon width={50} />
       </button> */}
 
-      {/* <ModalReservations></ModalReservations> */}
+      {/* <AppointmentsModal
+        open={manage}
+        setOpen={setManage}
+        appointments={appointments}
+      ></AppointmentsModal> */}
     </div>
   );
 };

@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styles from "./ReservationForm.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchServices } from "../../features/servicesSlice";
 
 const ReservationForm = () => {
-  const [services, setServices] = useState([]);
+
+  const {services} =  useSelector(state => state.services)
+  const dispatch = useDispatch()
   const [formData, setFormatData] = useState({
     first_name: "",
     last_name: "",
@@ -33,7 +37,7 @@ const ReservationForm = () => {
       body: JSON.stringify(formData),
     });
     console.log("send...");
-    
+      dispatch()
     if (sendData.status === 201) {
       alert("Tout s'est bien passé! ");
     }
@@ -52,16 +56,12 @@ const ReservationForm = () => {
   };
 
   useEffect(() => {
-    async function getServices() {
-      const data = await fetch("http://localhost:4000/bondeko/services");
-      const serviceData = await data.json();
-      setServices(serviceData);
+    if(!services.length){
+      dispatch(fetchServices())
     }
+  }, [services]);
 
-    getServices();
-  }, []);
-
-  // console.log(services);
+  console.log(services);
   return (
     <>
       <form action="" className={styles.form} onSubmit={handleSubmit}>

@@ -1,40 +1,107 @@
 @use "../../assets/styles/variables" as *;
 
 .card {
-    background-color: $smoke-color;
-    padding: 20px;
+  background-color: $smoke-color;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.header{
-    display: flex;
-    justify-content: space-between;
+.header {
+  display: flex;
+  justify-content: space-between;
 }
-.head_actions{
-    display: grid;
-    gap: .5rem;
+.name {
+  font-size: 1.1rem;
+  font-weight: 500;
 }
-.heade_icon{
+.contact,
+.contact span {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: $dark-color;
+}
 
+.head_actions {
+    text-align: center;
+//   background-color: red;
+//   display: grid;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 0.5rem;
 }
-.head_btn{
-    transition: .3s;
-    border: none;
-    background-color: transparent;
-    
+.head_icon {
+    display: inline-block;
+//   background-color: yellow;
+}
+.head_btn {
+  transition: 0.3s;
+  border: none;
+  background-color: transparent;
+//   background-color: blue;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
 
 .body {
   transition: 0.3s;
   height: 0;
-    overflow: hidden;
+  overflow: hidden;
+//   display: grid;
+//   gap: .5rem;
 }
 
 .open {
-    .head_btn{
-        transform: rotate(90deg);
-    }
+  .head_btn {
+    transform: rotate(90deg);
+  }
   .body {
-    height: 200px;
+    height: 250px;
     // background-color: red;
   }
+}
+
+.info_group{
+    margin: 10px 0;
+    // display: grid;
+    // gap: .8rem;
+}
+
+.info_label, .title{
+    font-size: .9rem;
+    // background-color: gray;
+    // font-weight: bold;
+}
+.info_value{
+    opacity: .5;
+}
+
+
+.footer{
+    margin-top: 10px;
+    border-top: 1px solid rgba(128, 128, 128, 0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_cta {
+  display: flex;
+  // justify-content: end;
+  gap: 0.5rem;
+
+  button{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px 10px ;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    svg{
+        width: 18px;
+        height: 18px;
+    }
+}
+
 }
