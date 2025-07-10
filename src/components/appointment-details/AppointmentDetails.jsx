@@ -5,13 +5,15 @@ import {
   XCircleIcon,
 } from "@phosphor-icons/react";
 import styles from "./AppointmentDetails.module.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   removeAppointment,
   updateAppointment,
 } from "../../features/appointmentsSlice";
 
-const AppointementDetail = ({ appointment }) => {
+const AppointementDetail = ({ appointmentId, deleteAppointment }) => {
+  const {appointments} = useSelector(state => state.appointments)
+  const appointment = appointments.filter(ap => ap.id === appointmentId)[0]
   const dispatch = useDispatch();
 
   let {
@@ -20,6 +22,7 @@ const AppointementDetail = ({ appointment }) => {
     phone,
     email,
     birthday,
+    sex,
     date,
     time,
     service,
@@ -98,7 +101,7 @@ const AppointementDetail = ({ appointment }) => {
               <PhoneIcon /> <span>{phone}</span>
             </a>
             <p>
-              Sexe : <span>{birthday}</span>
+              Sexe : <span>{sex}</span>
             </p>
             <p>
               Date de naissance : <span>{birthday}</span>
@@ -136,6 +139,7 @@ const AppointementDetail = ({ appointment }) => {
           href=""
           onClick={(e) => {
             e.preventDefault();
+            deleteAppointment(null)
             dispatch(removeAppointment(id));
           }}
         >

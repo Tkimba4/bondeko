@@ -28,6 +28,20 @@ const ReservationForm = () => {
     }));
   };
 
+  const handleRest = (e) => {
+    setFormatData({
+      first_name: "",
+      last_name: "",
+      email: "",
+      phone: "",
+      birthday: "",
+      date: "",
+      time: "",
+      service: "",
+      motif: "",
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch(addAppointment(formData));
@@ -67,7 +81,7 @@ const ReservationForm = () => {
   console.log(services);
   return (
     <>
-      <form action="" className={styles.form} onSubmit={handleSubmit}>
+      <form action="" className={styles.form} onSubmit={handleSubmit} onReset={handleRest}>
         <fieldset className={`${styles.fieldsetUser}`}>
           <legend>Info</legend>
           <div className={`${styles.formGroup} ${styles.first_name}`}>

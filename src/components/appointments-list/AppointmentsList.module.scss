@@ -1,5 +1,16 @@
 @use "../../assets/styles/variables" as *;
 
+.main{
+  display: grid;
+  // grid-template-rows: .2fr .3fr 1.5fr;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
 .form {
   input {
     width: 100%;
@@ -19,6 +30,8 @@
 .appointments_list {
   display: grid;
   gap: 0.5rem;
+  overflow-y: auto;
+  height: 80vh;
 }
 
 .appointment_item {
@@ -26,6 +39,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+  margin : 0 10px;
   border-radius: 5px;
   color: initial;
   // background-color: $smoke-color;

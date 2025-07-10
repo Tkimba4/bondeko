@@ -10,12 +10,15 @@ const Appointments = () => {
     <div className={styles.main}>
       <div className={styles.appointments_list}>
         <div className={styles.appointments_list_container}>
-          <AppointmentsList setActive={setAppointmentActive} />
+          <AppointmentsList setActive={setAppointmentActive} active={appointmentActive} />
         </div>
       </div>
       <div className={styles.appointment_details}>
         {appointmentActive ? (
-          <AppointementDetail appointment={appointmentActive} />
+          <AppointementDetail
+            appointmentId={appointmentActive}
+            deleteAppointment={setAppointmentActive}
+          />
         ) : (
           <div className={styles.msg_select_appointment}>
             <p>Sélectionnez un rendez-vous pour voir les détails</p>

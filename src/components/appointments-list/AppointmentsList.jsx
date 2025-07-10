@@ -1,21 +1,54 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchAppointments } from "../../features/appointmentsSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./AppointmentsList.module.scss";
-import { CheckIcon, ClockUserIcon, XIcon } from "@phosphor-icons/react";
-const AppointmentsList = ({ setActive }) => {
+import {
+  CheckIcon,
+  ClockUserIcon,
+  SortAscendingIcon,
+  XIcon,
+} from "@phosphor-icons/react";
+import { apFilter } from "../../helpers/functions";
+const AppointmentsList = ({ setActive, active }) => {
+  const [appointmentsList, setAppointmentsList] = useState([]);
+  const [search, setSearch] = useState('');
   const { appointments } = useSelector((state) => state.appointments);
   const dispatch = useDispatch();
   useEffect(() => {
     if (!appointments.length) {
       dispatch(fetchAppointments());
+      setAppointmentsList(appointments);
     }
   }, [appointments]);
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        setActive(null);
+      }
+    });
+  }, []);
+  
+  useEffect(()=>{
+
+  }, [])
+
+  function handleSearch(e){
+    // setSearch(e.currentTarget.value)
+    // const results = appointments.filter(ap => ap.first_name.includes(search));
+    // setAppointmentsList(results)
+  }
 
   return (
-    <div>
-      <h2 className="title">Gestion</h2>
+    <div className={styles.main}>
+      <div className={styles.header}>
+        <h2 className="title">Gestion</h2>
+        {/* <div className={styles.filters_container}>
+          <button className={styles.btn_filter}>
+            <SortAscendingIcon />
+          </button>
+        </div> */}
+      </div>
 
       <form
         action=""
@@ -26,12 +59,13 @@ const AppointmentsList = ({ setActive }) => {
           type="search"
           name="search"
           id="search"
+          value={search}
+          onChange={handleSearch}
           required
-          placeholder="Entrez un nom..."
+          placeholder="Recherchez un nom..."
           // onChange={search}
         />
       </form>
-      {/* <div className={styles.filters}>filters...</div> */}
       <ul className={styles.appointments_list}>
         {appointments.map((appointment) => (
           <li key={appointment.id}>
@@ -46,7 +80,7 @@ const AppointmentsList = ({ setActive }) => {
 const AppointmentItem = ({ appointment, setActive }) => {
   const handleClick = (e) => {
     e.preventDefault();
-    setActive(appointment);
+    setActive(appointment.id);
 
     document.querySelectorAll(`.${styles.appointment_item}`).forEach((li) => {
       li.classList.remove(styles.active);
@@ -76,7 +110,7 @@ const AppointmentItem = ({ appointment, setActive }) => {
       <div className={styles.appointment_state}>
         <span className={`${styles.state} ${styles.state_waiting}`}>
           {appointment.state === "WAITING" ? (
-            <ClockUserIcon  color="orange" />
+            <ClockUserIcon color="orange" />
           ) : appointment.state === "CONFIRMED" ? (
             <CheckIcon color="green" />
           ) : (
